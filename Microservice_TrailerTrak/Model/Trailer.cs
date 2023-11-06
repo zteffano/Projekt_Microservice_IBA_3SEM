@@ -1,4 +1,6 @@
-﻿namespace Microservice_TrailerTrak.Model
+﻿using System;
+
+namespace Microservice_TrailerTrak.Model
 {
 
     // Trailer Model udkast
