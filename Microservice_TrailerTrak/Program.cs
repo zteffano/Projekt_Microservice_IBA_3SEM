@@ -31,17 +31,7 @@ namespace Microservice_TrailerTrak
 			app.UseAuthorization();
 			app.MapGet("/", () => "Velkommen til TrailerTrak");
 
-			app.MapGet("/todolisten", () => new List<string>
-			{
-				"1. Opsætning af SQL Server i Docker",
-				"2. Opsætning af API i docker",
-				"3. Lav en Docker compose fil og lav opsætning, så de er på samme netværk",
-				"4. Find ud af hvilke paths der skal være. F.eks. /api/v1/trailers/ ..og hvilke GET, POST, PUT / DELETE der skal være",
-				"5. Prioritere via MoSCOW metoden",
-				"6. Lav en class model og find ud hvilke egenskaber vi skal have",
-				"7. Når vores modeller er på plads, kan vi bruge EF til at oprette Database og lave migrations",
-				"8. Lav en controller"
-			});
+
 
 			// Trailer list eksempel til vores "/trailer" path
 			var trailers = new List<Trailer>
