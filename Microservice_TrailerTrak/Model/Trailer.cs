@@ -1,22 +1,35 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Microservice_TrailerTrak.Model
 {
 
     // Trailer Model udkast
-    // Tænker måske vi skal ændre det hele til engelsk, just in case
+
     public class Trailer
     {
-        public int ID { get; set; }
-        public string Navn { get; set; }
-        public int Årgang { get; set; }
-        public string Mærke { get; set; }
-        public int Vægt { get; set; }
-        public int MaxVægt { get; set; }
-        public bool BookedStatus { get; set; }
-        public DateTime? BookedIndtil { get; set; }
-        public decimal PrisDag { get; set; }
-        public decimal PrisUge { get; set; }
-        public decimal PrisMåned { get; set; }
-    }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Year { get; set; }
+        public string Brand { get; set; }
+        public int Weight { get; set; }
+        public int TotalWeight { get; set; }
+        public int CarryWeight { get; set; }
+        public string Type { get; set; }
+        public string LicensePlate { get; set; }
+        public int DayPrice { get; set; }
+        public int Length { get; set; }
+        public int Width { get; set; }
+
+        // Navigation properties => For at vi også kan gå fra Trailer til Booking
+		public virtual ICollection<Booking> Bookings { get; set; }
+
+		public Trailer()
+        {
+			// uden parametre da vi arbejder med EF og det er "den måde at gøre det på"
+		}
+
+	}
+
 }
