@@ -18,5 +18,20 @@ namespace Microservice_TrailerTrak.Model
         public decimal PrisDag { get; set; }
         public decimal PrisUge { get; set; }
         public decimal PrisMåned { get; set; }
+
+        public Trailer(int iD, string navn, int årgang, string mærke, int vægt, int maxVægt, bool bookedStatus, DateTime? bookedIndtil, decimal prisDag, decimal prisUge, decimal prisMåned)
+        {
+            ID = iD;
+            Navn = navn;
+            Årgang = årgang;
+            Mærke = mærke;
+            Vægt = vægt;
+            MaxVægt = maxVægt;
+            BookedStatus = bookedStatus;
+            BookedIndtil = bookedIndtil;
+            PrisDag = prisDag;
+            PrisUge = prisUge;
+            PrisMåned = prisMåned;
+        }
     }
 }
