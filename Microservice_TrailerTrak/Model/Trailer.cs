@@ -13,10 +13,10 @@ namespace Microservice_TrailerTrak.Model
         public string Name { get; set; }
         public int Year { get; set; }
         public string Brand { get; set; }
-        public int Weight { get; set; }
-        public int TotalWeight { get; set; }
-        public int CarryWeight { get; set; }
-        public string Type { get; set; }
+        public int Weight { get; set; }  // KG
+        public int TotalWeight { get; set; } // KG
+        public int CarryWeight { get; set; } // KG
+        public string Type { get; set; } // F.eks. hobby, bådtrailer, hestetrailer
         public string LicensePlate { get; set; }
         public int DayPrice { get; set; }
         public int Length { get; set; }

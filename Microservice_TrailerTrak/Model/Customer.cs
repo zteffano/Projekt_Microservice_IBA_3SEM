@@ -5,10 +5,10 @@ namespace Microservice_TrailerTrak.Model
     public class Customer
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
+        public string Name { get; set; } // fulde navn
+        public string Type { get; set; } // privat eller erhverv
+        public string Phone { get; set; } //Dansk nummer format
+        public string Address { get; set; } // Fuld adresse
         public string Email { get; set; }
 
         // Navigation properties => For at vi også kan gå fra Customer til Booking
