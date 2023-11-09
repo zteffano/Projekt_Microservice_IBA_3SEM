@@ -10,8 +10,8 @@ namespace Microservice_TrailerTrak.Model
         public int Id { get; set; }
         public DateTime BookedFrom { get; set; }
         public DateTime BookedTo { get; set; }
-        public bool Returned { get; set; }
-        public bool Paid { get; set; }
+        public bool Returned { get; set; } // Hvis den er returneret
+        public bool Paid { get; set; } // Hvis den er betalt , nogle betaler ikke online , typisk erhvervskunder
 		// Foreign keys
 		public int CustomerId { get; set; }
         public int TrailerId { get; set; }

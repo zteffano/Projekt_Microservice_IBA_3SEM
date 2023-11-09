@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Frontend Test </title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .button-group, .input-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            button:hover {
+                background-color: #003d82;
+            }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>API Tester</h1>
+        </div>
+
+        <!-- Button Groups for Actions -->
+        <div class="button-group">
+            <button onclick="fetchData('trailers')">Hent Trailers</button>
+            <button onclick="fetchData('bookings')">Hent Bookings</button>
+            <button onclick="fetchData('customers')">Hent Customers</button>
+            <button onclick="fetchData('trailers/availables')">Hent Tilgængelige Trailers</button>
+        </div>
+        <br>
+        <hr>
+        <br>
+
+        <!-- Input Groups for Actions with IDs -->
+        <div class="input-group">
+            <input type="text" id="trailerId" placeholder="Trailer ID">
+            <button onclick="fetchDataWithId('trailer')">Hent Specifik Trailer</button>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="priceId" placeholder="Trailer ID">
+            <input type="text" id="days" placeholder="Dage">
+            <button onclick="fetchGetPrice()">Hent Pris</button>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="trailers/availableId" placeholder="Tilgængelig Trailer ID">
+            <button onclick="fetchDataWithId('trailers/available')">Hent Specifik Tilgængelig Trailer</button>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <!-- JSON output område-->
+        <div id="result"></div>
+    </div>
+
+    <script>
+    const baseUrl = 'http://localhost:54666/';
+
+function fetchData(endpoint) {
+    const apiUrl = baseUrl + endpoint;
+
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Noget gik galt ved anmodningen. Status: ' + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+            console.error('Der var en fejl:', error);
+            document.getElementById('result').textContent = error.toString();
+        });
+}
+
+function fetchDataWithId(endpoint) {
+    const id = document.getElementById(endpoint + 'Id').value;
+    if (!id) {
+        alert('Indtast venligst et ID.');
+        return;
+    }
+    fetchData(`${endpoint}/${id}`);
+}
+
+function fetchGetPrice() {
+    const id = document.getElementById('priceId').value;
+    const days = document.getElementById('days').value;
+    if (!id || !days) {
+        alert('Indtast venligst ID og antal dage.');
+        return;
+    }
+    fetchData(`getprice/${id}/${days}`);
+}
+    </script>
+
+</body>
+</html>

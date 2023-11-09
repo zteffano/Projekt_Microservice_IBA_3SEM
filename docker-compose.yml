@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  microservice_trailertrak:
+    image: ${DOCKER_REGISTRY-}microservicetrailertrak
+    build:
+      context: .
+      dockerfile: Microservice_TrailerTrak/Dockerfile
+    depends_on:
+      - sqlserver_trailertrak
+    networks:
+      - trailertrak
+
+  sqlserver_trailertrak:
+    image: zteffano/sqlserver_trailertrak:latest # Docker hub navnet
+    container_name: sqlserver_trailertrak
+    environment:
+      - "ACCEPT_EULA=Y"
+      - "MSSQL_SA_PASSWORD=test123#" # Det allerede eksisterende password i imaget
+    ports:
+      - "1433:1433"
+    networks:
+      - trailertrak
+
+networks:
+  trailertrak: # netværks navnet til som vores containere kører på 
+    driver: bridge
