@@ -18,9 +18,8 @@ vigtigheden af at tilbyde brugervenlige onlineplatforme, der gør det let for b�
 erhvervskunder at finde, reservere og administrere deres trailere.Den Digitale Transformation Begynder:
 For at imødekomme disse behov har Kolding Trailers A/S påbegyndt en ambitiøs digital
 transformation. De investerer i et moderne og skræddersyet IT-system, der integrerer
-onlinebooking, realtidsopdateringer om tilgængelighed, prisfastsættelse og flådestyring. Den nye
-platform vil ikke kun gøre det muligt for kunderne at foretage hurtige og bekvemme
-Side 3 af 4
+onlinebooking, realtidsopdateringer om tilgængelighed, prisfastsættelse og flådestyring.
+Den nye platform vil ikke kun gøre det muligt for kunderne at foretage hurtige og bekvemme
 reservationer, men den vil også give virksomheden mulighed for at optimere lagerstyring,
 forbedre vedligeholdelsesplanlægning og styrke deres kundeservice.Fordele ved Den Opdaterede IT-Understøttelse:
 Når implementeringen af det nye IT-system er fuldført, vil Kolding Trailers A/S kunne tilbyde
